@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-
+    <div id="app">
     <section class="hero is-info is-fullheight">
         <div class="hero-head">
             <nav class="navbar">
@@ -105,12 +105,14 @@
                                 </p>
                             </div>
                         </div> --}}
+
                     </div>
                 </div>
             </div>
+            <div class="hero-foot has-text-centered"><span>Photo by <a href="https://unsplash.com/@andrew_wong?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Andrew Wong</a> on <a href="/s/photos/bread?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></div>
 
     </section>
-
+</div>
     <!-- Scripts -->
     <script>
         window.default_locale = "{{ config('app.locale') }}";
