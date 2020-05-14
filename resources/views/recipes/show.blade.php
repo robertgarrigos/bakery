@@ -30,7 +30,7 @@
                             <td><a class="button is-success is-small"
                                     href="/admin/recipes/{{ $recipe->id }}/ingredients_flours/{{ $flour->id }}/edit"><i
                                         class="fas fa-edit"></i></a>
-                                <form method="post" action="/flours/{{ $flour->id }}" style="display: inline-block;"
+                                <form method="post" action="/admin/flours/{{ $flour->id }}" style="display: inline-block;"
                                     onsubmit="return confirm('Do you really want to delete?');">
                                     @method('DELETE')
                                     @csrf
@@ -71,7 +71,7 @@
                             <td><a class="button is-success is-small"
                                     href="/admin/recipes/{{ $recipe->id }}/ingredients_others/{{ $other->id }}/edit"><i
                                         class="fas fa-edit"></i></a>
-                                <form method="post" action="/others/{{ $other->id }}" style="display: inline-block;"
+                                <form method="post" action="/admin/others/{{ $other->id }}" style="display: inline-block;"
                                     onsubmit="return confirm('Do you really want to delete?');">
                                     @method('DELETE')
                                     @csrf
@@ -113,7 +113,7 @@
                             <td><a class="button is-success is-small"
                                     href="/admin/recipes/{{ $recipe->id }}/ingredients_liquids/{{ $liquid->id }}/edit"><i
                                         class="fas fa-edit"></i></a>
-                                <form method="post" action="/liquids/{{ $liquid->id }}" style="display: inline-block;"
+                                <form method="post" action="/admin/liquids/{{ $liquid->id }}" style="display: inline-block;"
                                     onsubmit="return confirm('Do you really want to delete?');">
                                     @method('DELETE')
                                     @csrf
@@ -160,7 +160,7 @@
                             <td><a class="button is-success is-small"
                                     href="/admin/recipes/{{ $recipe->id }}/ingredients_sourdoughs/{{ $sourdough->id }}/edit"><i
                                         class="fas fa-edit"></i></a>
-                                <form method="post" action="/sourdoughs/{{ $sourdough->id }}"
+                                <form method="post" action="/admin/sourdoughs/{{ $sourdough->id }}"
                                     style="display: inline-block;"
                                     onsubmit="return confirm('Do you really want to delete?');">
                                     @method('DELETE')
