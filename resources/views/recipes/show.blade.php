@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 
 @section('title', $recipe->title)
@@ -188,7 +189,7 @@
               </header>
               <div class="card-content">
                 <div class="content">
-                    {{ $recipe->notes }}
+                    @markdown($recipe->notes)
                 </div>
               </div>
             </div>
@@ -210,7 +211,6 @@
                 <p>Recipe others: {{ $recipe->recipe_others }}</p>
                 <p>Recipe recipe: {{ $recipe->recipe_total }}</p>
                 <p>Recipe humidity: {{ $recipe->recipe_humidity }}</p>
-                <p>Notes: {{ $recipe->notes }}</p>
             </div>
         </div>
         <div class="card content">
