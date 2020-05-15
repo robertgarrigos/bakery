@@ -58,74 +58,75 @@
 
             </tbody>
         </table>
+        <div class="card content">
+            <div class="card-header">
+                <p class="card-header-title">Actions</p>
+            </div>
+            <div class="card-content">
+                <div class="field is-grouped">
+                    @if ($production->status == 1)
+                    <div class="control">
+                        <form method="post" action="/admin/productions/{{ $production->id }}/mark">
+                            @csrf
+                            <input type="hidden" name="new_status" value="2">
+                            <button type="submit" class="button is-warning">Mark fermenting</button>
+                        </form>
+                    </div>
+                    @endif
+                    @if ($production->status == 2)
+                    <div class="control">
+                        <form method="post" action="/admin/productions/{{ $production->id }}/mark">
+                            @csrf
+                            <input type="hidden" name="new_status" value="3">
+                            <button type="submit" class="button is-success">Mark finished</button>
+                        </form>
+                    </div>
+                    @endif
+                    @if ($production->status == 3)
+                    <div class="control">
+                        <form method="post" action="/admin/productions/{{ $production->id }}/mark">
+                            @csrf
+                            <input type="hidden" name="new_status" value="1">
+                            <button type="submit" class="button is-danger">Mark pending</button>
+                        </form>
+                    </div>
+                    @endif
+                    <div class="control">
+                        <form method="post" action="/admin/productions/{{ $production->id }}"
+                            onsubmit="return confirm('Do you really want to delete?');" class="mt-3">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="button is-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="column is-half">
 
-            <div class="card content">
-                    <div class="card-header">
-                        <p class="card-header-title">Actions</p>
-                    </div>
-                    <div class="card-content">
-                        <div class="field is-grouped">
-                            @if ($production->status == 1)
-                            <div class="control">
-                                <form method="post" action="/admin/productions/{{ $production->id }}/mark">
-                                    @csrf
-                                    <input type="hidden" name="new_status" value="2">
-                                    <button type="submit" class="button is-warning">Mark fermenting</button>
-                                </form>
-                            </div>
-                            @endif
-                            @if ($production->status == 2)
-                            <div class="control">
-                                <form method="post" action="/admin/productions/{{ $production->id }}/mark">
-                                    @csrf
-                                    <input type="hidden" name="new_status" value="3">
-                                    <button type="submit" class="button is-success">Mark finished</button>
-                                </form>
-                            </div>
-                            @endif
-                            @if ($production->status == 3)
-                            <div class="control">
-                                <form method="post" action="/admin/productions/{{ $production->id }}/mark">
-                                    @csrf
-                                    <input type="hidden" name="new_status" value="1">
-                                    <button type="submit" class="button is-danger">Mark pending</button>
-                                </form>
-                            </div>
-                            @endif
-                            <div class="control">
-                                <form method="post" action="/admin/productions/{{ $production->id }}"
-                                    onsubmit="return confirm('Do you really want to delete?');" class="mt-3">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="button is-danger">Delete</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
         <div class="card content is-fullwidth">
             <div class="card-header">
                 <p class="card-header-title">Totals</p>
             </div>
             <div class="card-content">
-                    @if ($production->status == 1)
-                    <p class="has-background-danger has-text-white">Status: pending</p>
-                    @endif
-                    @if ($production->status == 2)
-                    <p class="has-background-warning">Status: fermenting</p>
-                    @endif
-                    @if ($production->status == 3)
-                    <p class="has-background-success">Status: finished</p>
-                    @endif
+                @if ($production->status == 1)
+                <p class="has-background-danger has-text-white">Status: pending</p>
+                @endif
+                @if ($production->status == 2)
+                <p class="has-background-warning">Status: fermenting</p>
+                @endif
+                @if ($production->status == 3)
+                <p class="has-background-success">Status: finished</p>
+                @endif
                 <p>Total pieces: {{ $production->pieces_number }}</p>
                 <p>Weight pieces: {{ $production->pieces_weight }}</p>
                 <p>Total weight: {{ $production->total_weight }}</p>
                 <p>Proportion: {{ $production->proportion }}</p>
                 <p>Final pieces baked: {{ $production->pieces_final }}</p>
-                <p>Notes: {{ $production->notes }}</p>
+                <p>Notes: @markdown($production->notes)</p>
                 <a class="button is-success" href="/admin/productions/{{ $production->id }}/edit">Edit</a>
             </div>
         </div>
