@@ -59,7 +59,7 @@
             <div class="container is-fluid">
                 <div class="columns">
                     @auth
-                    <div class="column is-2">
+                    <div class="column is-1">
 
                         @include('includes.menu')
 
